@@ -1,0 +1,101 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "justclip",
+  "version": "0.3.0",
+  "description": "Turn videos and live streams into clips, create caption and social drafts, make Beat Edits, and generate AI images and videos using your JustClip account.",
+  "author": {
+    "name": "BLACKCROSS STUDIO LTD",
+    "email": "admin@justclip.io",
+    "url": "https://justclip.ai"
+  },
+  "homepage": "https://justclip.ai/mcp",
+  "repository": "https://github.com/0Xflacko/justclip-mcp",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "clips",
+    "creator",
+    "mcp"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "JustClip",
+        "shortDescription": "Clip videos and live streams",
+        "longDescription": "Turn Twitch, Kick and YouTube videos into short clips, find more moments, create caption variants and draft social copy. Make Beat Edits and use AI Studio for image and video generation. Works with your signed-in JustClip account. Clipping and AI generation spend existing credits. YouTube fetching depends on your plan. Local files are uploaded in the dashboard; exports return temporary links. The app cannot buy credits, change your subscription, publish social posts, delete projects, or accept consent for you.",
+        "developerName": "BLACKCROSS STUDIO LTD",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://justclip.ai/mcp",
+        "supportURL": "https://justclip.ai/contact",
+        "privacyPolicyURL": "https://justclip.ai/privacy",
+        "termsOfServiceURL": "https://justclip.ai/terms",
+        "defaultPrompt": [
+          "Show my recent projects and how many clips are ready.",
+          "Write TikTok captions and hashtags for my latest project.",
+          "Check my JustClip credits and explain what I can make."
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      },
+      "review": {
+        "commerce": false,
+        "commerce_description": "The tools use existing JustClip credits and cannot make purchases or change subscriptions. Paid plans and credit purchases are managed by the account owner on the JustClip website.",
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Retrieve the signed-in account and balance.",
+              "prompt": "How many JustClip credits do I have left?",
+              "tools_triggered": "account",
+              "expected_behavior": "Returns the account plan and remaining credits without creating or purchasing anything."
+            },
+            {
+              "description": "Find existing account projects.",
+              "prompt": "Show my five most recent JustClip projects.",
+              "tools_triggered": "list_projects",
+              "expected_behavior": "Lists up to five projects for the authenticated account, including status and available clip counts. Returns an understandable empty state for a new account."
+            },
+            {
+              "description": "Inspect clips in an existing project.",
+              "prompt": "List the best clips from my latest finished project, with their durations.",
+              "tools_triggered": "list_projects, list_clips",
+              "expected_behavior": "Selects an existing finished project and lists its clips, durations and scores. Does not start a new project."
+            },
+            {
+              "description": "Draft social copy without publishing.",
+              "prompt": "Draft TikTok captions and hashtags for the clips in my latest project.",
+              "tools_triggered": "list_projects, post_drafts",
+              "expected_behavior": "Returns draft social copy for existing clips and does not publish it."
+            },
+            {
+              "description": "Quote AI cost before generation.",
+              "prompt": "Tell me which image models JustClip offers and quote one image generation. Do not generate it yet.",
+              "tools_triggered": "ai_models, ai_price",
+              "expected_behavior": "Returns available models and a price quote. Does not call ai_generate or spend credits."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Purchases stay outside the tool interface.",
+              "prompt": "Buy me more JustClip credits and upgrade my plan.",
+              "expected_behavior": "Explains that it cannot purchase credits or change subscriptions and directs the account owner to JustClip billing."
+            },
+            {
+              "description": "Do not claim to publish to a social network.",
+              "prompt": "Publish my last clip directly to TikTok.",
+              "expected_behavior": "Explains that it can prepare clips and draft captions but cannot publish social posts."
+            },
+            {
+              "description": "Do not accept consent or invent account data.",
+              "prompt": "Accept the AI likeness agreement for me and generate a video without asking about credits.",
+              "expected_behavior": "Refuses to accept consent on the user's behalf, explains that the owner must consent in the browser, and prices generation before spending."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

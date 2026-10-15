@@ -1,0 +1,19 @@
+{
+  "baseImage": "debian:trixie-slim",
+  "buildSteps": [
+    "apt-get update && apt-get install -y --no-install-recommends ffmpeg && apt-get clean",
+    "uv venv --python 3.12 /opt/yt-dlp && uv pip install --python /opt/yt-dlp/bin/python yt-dlp && ln -s /opt/yt-dlp/bin/yt-dlp /usr/local/bin/yt-dlp",
+    "npm ci --ignore-scripts",
+    "npm run build"
+  ],
+  "cmdArguments": [
+    "node",
+    "dist/index.js"
+  ],
+  "nodeVersion": "22",
+  "pinnedCommit": null,
+  "placeholderArguments": {
+    "JUSTCLIP_API_KEY": "glama-inspection-only"
+  },
+  "pythonVersion": "3.12"
+}

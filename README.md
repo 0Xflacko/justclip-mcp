@@ -145,6 +145,6 @@ subject to [JustClip Terms](https://justclip.ai/terms).
 - [Glama local server](https://glama.ai/mcp/servers/0Xflacko/justclip-mcp)
 - [Glama hosted connector](https://glama.ai/mcp/connectors/io.github.0Xflacko/justclip)
 
-Glama's hosted health check requires a maintainer test profile before it can verify authenticated tool discovery.
+Glama's local server has passed its build and tool-discovery inspection. Its build settings are recorded in `glama-build-spec.json`; enter the startup command without the `mcp-proxy` wrapper, which Glama adds. The placeholder key is only for schema inspection. Users authorize their own JustClip account. The hosted connector separately needs a maintainer OAuth test profile and production support for Glama's callbacks.
 
 For a Smithery release, run `npm run bundle` and `npm run smithery:metadata`. Submit `artifacts/justclip.mcpb` as the `bundle` and the JSON in `artifacts/smithery-release.json` as the `payload` using [Smithery's publish API](https://smithery.ai/docs/api-reference/servers/publish-a-server). The metadata includes actual tool input schemas required by Smithery's server card. Smithery CLI 4.11.1 copies the simpler desktop manifest entries into that card, which fails validation; the API keeps the standard MCPB manifest intact.

@@ -15,7 +15,8 @@
     "dev": "tsx src/index.ts",
     "prepublishOnly": "npm run build",
     "test": "npm run build && node --test scripts/smoke.test.mjs",
-    "bundle": "npm run build && node scripts/build-bundle.mjs"
+    "bundle": "npm run build && node scripts/build-bundle.mjs",
+    "smithery:metadata": "npm run build && node scripts/smithery-metadata.mjs"
   },
   "keywords": [
     "mcp",

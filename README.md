@@ -137,3 +137,14 @@ npm run bundle
 `npm run bundle` writes `artifacts/justclip.mcpb` with production dependencies.
 The server source and bundle are MIT licensed; use of the JustClip service is
 subject to [JustClip Terms](https://justclip.ai/terms).
+
+## Directory listings
+
+- [Official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.0Xflacko%2Fjustclip/versions/latest)
+- [Smithery](https://smithery.ai/servers/denoweb3/justclip)
+- [Glama local server](https://glama.ai/mcp/servers/0Xflacko/justclip-mcp)
+- [Glama hosted connector](https://glama.ai/mcp/connectors/io.github.0Xflacko/justclip)
+
+Glama's hosted health check requires a maintainer test profile before it can verify authenticated tool discovery.
+
+For a Smithery release, run `npm run bundle` and `npm run smithery:metadata`. Submit `artifacts/justclip.mcpb` as the `bundle` and the JSON in `artifacts/smithery-release.json` as the `payload` using [Smithery's publish API](https://smithery.ai/docs/api-reference/servers/publish-a-server). The metadata includes actual tool input schemas required by Smithery's server card. Smithery CLI 4.11.1 copies the simpler desktop manifest entries into that card, which fails validation; the API keeps the standard MCPB manifest intact.

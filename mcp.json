@@ -3,17 +3,7 @@
   "mcpServers": {
     "justclip": {
       "type": "streamable-http",
-      "url": "https://justclip.ai/api/mcp",
-      "extensions": {
-        "com.openai": {
-          "auth": {
-            "type": "oauth",
-            "client": {
-              "mode": "dcr"
-            }
-          }
-        }
-      }
+      "url": "https://justclip.ai/api/mcp"
     }
   }
 }

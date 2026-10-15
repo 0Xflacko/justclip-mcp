@@ -1,0 +1,51 @@
+{
+  "name": "justclip-mcp",
+  "version": "0.3.0",
+  "description": "Clip videos and live streams, create Beat Edits, and use JustClip AI Studio from Claude, Cursor, Codex and other local MCP clients.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "justclip-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "prepublishOnly": "npm run build",
+    "test": "npm run build && node --test scripts/smoke.test.mjs",
+    "bundle": "npm run build && node scripts/build-bundle.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "justclip",
+    "video",
+    "clips",
+    "youtube",
+    "twitch",
+    "kick"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "mcpName": "io.github.0Xflacko/justclip",
+  "homepage": "https://justclip.ai/agent",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0Xflacko/justclip-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/0Xflacko/justclip-mcp/issues"
+  }
+}

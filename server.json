@@ -1,0 +1,28 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.0Xflacko/justclip",
+  "title": "JustClip",
+  "description": "Clip videos and live streams, create Beat Edits, and generate AI media with JustClip.",
+  "version": "0.3.0",
+  "websiteUrl": "https://justclip.ai/mcp",
+  "repository": {
+    "url": "https://github.com/0Xflacko/justclip-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/0Xflacko/justclip-mcp/releases/download/v0.3.0/justclip.mcpb",
+      "fileSha256": "ab236f45bb161d5665e74ac5870132683940f53dec6762a0a2d653223f1d5760",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://justclip.ai/api/mcp"
+    }
+  ]
+}

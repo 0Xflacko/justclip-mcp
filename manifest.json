@@ -1,0 +1,143 @@
+{
+  "name": "justclip",
+  "display_name": "JustClip",
+  "version": "0.3.0",
+  "description": "Clip videos and live streams, create Beat Edits, and use JustClip AI Studio from Claude, Cursor, Codex and other local MCP clients.",
+  "long_description": "Turn YouTube, Twitch and Kick videos or local files into short clips. Includes live clipping, caption variants, Beat Edits, and AI image and video generation. Video downloads run locally with yt-dlp before uploading to JustClip. Authorize your JustClip account in the browser on first use. A JustClip account and sufficient credits are required. yt-dlp and ffmpeg must be installed separately for local video downloads.",
+  "author": {
+    "name": "JustClip",
+    "url": "https://justclip.ai"
+  },
+  "homepage": "https://justclip.ai/agent",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"]
+    }
+  },
+  "tools": [
+    {
+      "name": "account",
+      "description": "Plan, credits left (and what AI can spend), biggest upload, consent status."
+    },
+    {
+      "name": "clip_video",
+      "description": "A YouTube/Twitch/Kick URL or a local file. Videos download on your machine and upload; a live Twitch/Kick channel is clipped live."
+    },
+    {
+      "name": "list_projects",
+      "description": "Recent projects with status, length and clip count."
+    },
+    {
+      "name": "project_status",
+      "description": "Processing status and how many clips are ready."
+    },
+    {
+      "name": "list_clips",
+      "description": "Clips with hook, score, duration and render status; marks any locked by the plan's export cap."
+    },
+    {
+      "name": "download_clip",
+      "description": "Save a rendered clip (.mp4) or its captions (.srt)."
+    },
+    {
+      "name": "download_all_clips",
+      "description": "Every exportable clip with covers, as one .zip."
+    },
+    {
+      "name": "stop_live",
+      "description": "Stop watching a live stream; a last pass finishes the clips."
+    },
+    {
+      "name": "more_moments",
+      "description": "Moments found but not made into clips, best first."
+    },
+    {
+      "name": "make_clip",
+      "description": "Turn one of those moments into a finished clip (free)."
+    },
+    {
+      "name": "rename_clip",
+      "description": "Change a clip's title."
+    },
+    {
+      "name": "caption_variants",
+      "description": "Copies of a clip in up to 3 other caption styles (Pro, Studio)."
+    },
+    {
+      "name": "post_drafts",
+      "description": "Ready-to-post hooks, captions and hashtags for TikTok/Shorts/Reels, X and LinkedIn. Never publishes."
+    },
+    {
+      "name": "beat_edit",
+      "description": "Cut footage to the beat of a song (Clipper and up)."
+    },
+    {
+      "name": "beat_edit_status",
+      "description": "A Beat Edit's progress, or the recent ones."
+    },
+    {
+      "name": "download_beat_edit",
+      "description": "Save a finished Beat Edit."
+    },
+    {
+      "name": "ai_models",
+      "description": "AI Studio image and video models, templates, prices in credits, the account's credits."
+    },
+    {
+      "name": "ai_ideas",
+      "description": "B-roll, hook, cover and product-shot ideas for a clip, with prompts and prices. Free."
+    },
+    {
+      "name": "ai_price",
+      "description": "What a generation costs, without spending anything."
+    },
+    {
+      "name": "ai_generate",
+      "description": "Start an image or video generation. Spends credits; failed jobs give them back."
+    },
+    {
+      "name": "ai_status",
+      "description": "Queued, running, done or failed, with the wait."
+    },
+    {
+      "name": "ai_list",
+      "description": "Generations for a clip, or the account's finished ones."
+    },
+    {
+      "name": "ai_cancel",
+      "description": "Cancel one that hasn't started; credits come back."
+    },
+    {
+      "name": "ai_download",
+      "description": "Save a finished image or video."
+    },
+    {
+      "name": "upload_media",
+      "description": "Upload an image, song or short video as an AI input or cover."
+    },
+    {
+      "name": "set_cover",
+      "description": "Set or clear a clip's cover."
+    }
+  ],
+  "keywords": ["video", "clips", "youtube", "twitch", "kick", "justclip"],
+  "user_config": {},
+  "manifest_version": "0.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0Xflacko/justclip-mcp.git"
+  },
+  "documentation": "https://github.com/0Xflacko/justclip-mcp#readme",
+  "support": "https://justclip.ai/contact",
+  "privacy_policies": ["https://justclip.ai/privacy"],
+  "license": "MIT",
+  "compatibility": {
+    "runtimes": {
+      "node": ">=22"
+    }
+  }
+}

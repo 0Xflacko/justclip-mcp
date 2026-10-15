@@ -1,0 +1,20 @@
+{
+  "name": "justclip",
+  "displayName": "JustClip",
+  "version": "0.3.0",
+  "description": "Turn videos and live streams into clips, create Beat Edits, and use AI Studio from Claude Code or local Cowork sessions. Requires Node.js 22+, a JustClip account and credits.",
+  "author": {
+    "name": "JustClip",
+    "email": "admin@justclip.io",
+    "url": "https://justclip.ai"
+  },
+  "homepage": "https://justclip.ai/agent",
+  "repository": "https://github.com/0Xflacko/justclip-mcp",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "clips",
+    "creator",
+    "mcp"
+  ]
+}

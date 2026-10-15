@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "justclip": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "https://github.com/0Xflacko/justclip-mcp/releases/download/v0.3.0/justclip-mcp-0.3.0.tgz"
+      ]
+    }
+  }
+}
